@@ -1,0 +1,51 @@
+id,name,skills,location,experience,education
+1,Rahul,Python;Pandas;Data Analysis,Pune,1,B.Tech
+2,Arjun,CSS;MongoDB;Java,Bangalore,0,B.E
+3,Priya,Power BI;Python;HTML;Machine Learning,Delhi,1,MCA
+4,Ananya,Python;SQL;MongoDB;Spring Boot;Pandas,Chennai,1,BCA
+5,Kiran,JavaScript;Docker;React,Mysore,2,M.Tech
+6,Neha,Java;PostgreSQL;HTML;React;Docker,Hyderabad,4,BCA
+7,Vivek,CSS;Machine Learning;JavaScript;Java;Data Analysis,Mumbai,0,B.E
+8,Sneha,Docker;Pandas;PostgreSQL,Mysore,1,BCA
+9,Aditya,Machine Learning;Pandas;JavaScript;SQL;Data Analysis,Chennai,3,MCA
+10,Meera,HTML;Data Analysis;Spring Boot;Java;CSS,Bangalore,2,MCA
+11,Rohan,JavaScript;Machine Learning;Spring Boot;CSS;TensorFlow,Delhi,5,MCA
+12,Pooja,Pandas;Node.js;Data Analysis;Git,Delhi,4,MCA
+13,Akash,Data Analysis;Node.js;Power BI;TensorFlow;JavaScript,Bangalore,0,B.E
+14,Divya,MongoDB;JavaScript;Docker;HTML,Kochi,4,BCA
+15,Nikhil,React;HTML;Pandas,Mysore,0,BCA
+16,Aishwarya,SQL;PostgreSQL;Python;Pandas;Git;Power BI,Hyderabad,5,BCA
+17,Varun,Node.js;AWS;SQL;Power BI,Bangalore,4,BCA
+18,Kavya,Python;React;AWS;Django;Data Analysis;Git,Pune,4,B.Tech
+19,Sahil,TensorFlow;JavaScript;HTML,Chennai,1,MCA
+20,Isha,Pandas;Power BI;MongoDB;Machine Learning,Pune,5,BCA
+21,Manish,AWS;PostgreSQL;Power BI;CSS;React;TensorFlow,Pune,0,BCA
+22,Shreya,CSS;HTML;Data Analysis,Pune,0,B.Tech
+23,Harsh,Data Analysis;JavaScript;Java,Mysore,0,M.Tech
+24,Nandini,Pandas;TensorFlow;Machine Learning;Node.js,Kochi,1,MCA
+25,Ritesh,Machine Learning;React;CSS;MongoDB;AWS;Git,Delhi,3,B.Tech
+26,Swathi,Java;Docker;Spring Boot,Hyderabad,1,B.E
+27,Abhishek,HTML;PostgreSQL;Node.js;MongoDB,Chennai,2,MCA
+28,Tanvi,JavaScript;PostgreSQL;HTML;React,Bangalore,5,M.Tech
+29,Yash,JavaScript;Data Analysis;SQL,Delhi,3,MCA
+30,Pallavi,Docker;Java;SQL;Git,Bangalore,3,BCA
+31,Aman,Django;MongoDB;HTML;TensorFlow;Node.js;React,Mumbai,1,B.Tech
+32,Sanjana,Spring Boot;Java;CSS,Kochi,4,M.Tech
+33,Ravi,Java;Power BI;JavaScript;SQL,Hyderabad,4,B.Tech
+34,Keerthi,Docker;React;Data Analysis;Java,Hyderabad,3,M.Tech
+35,Dhanush,Pandas;Machine Learning;Spring Boot;Data Analysis;Git,Delhi,1,BCA
+36,Anjali,Spring Boot;JavaScript;Python;PostgreSQL;React;Java,Pune,4,BCA
+37,Surya,AWS;JavaScript;Data Analysis;Git,Mumbai,1,MCA
+38,Deepika,Git;Power BI;Python;Django;React,Chennai,2,B.Tech
+39,Karthik,HTML;Node.js;Pandas,Mumbai,4,B.E
+40,Lakshmi,Machine Learning;Pandas;Power BI;TensorFlow;CSS,Bangalore,0,MCA
+41,Rohit,Java;Python;Spring Boot;Node.js;Pandas,Chennai,5,MCA
+42,Bhavana,HTML;Python;React;JavaScript;Node.js;Pandas,Bangalore,2,M.Tech
+43,Darshan,MongoDB;Node.js;Java;Django,Mysore,0,BCA
+44,Sakshi,Data Analysis;React;AWS;MongoDB,Chennai,1,B.E
+45,Vishal,MongoDB;Python;SQL;Spring Boot,Delhi,5,B.E
+46,Manya,SQL;React;Docker;Java;TensorFlow,Pune,1,MCA
+47,Pranav,Django;Data Analysis;CSS;Python;Machine Learning,Delhi,2,BCA
+48,Shruthi,Pandas;AWS;Power BI,Delhi,5,M.Tech
+49,Gaurav,Python;React;Pandas;SQL;HTML,Bangalore,0,M.Tech
+50,Sowmya,AWS;Spring Boot;MongoDB;Power BI;React;Machine Learning,Pune,2,B.Tech

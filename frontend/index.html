@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartMatch - Internship Matcher</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #172033;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            margin-bottom: 8px;
+            color: #174ea6;
+            font-size: 34px;
+        }
+
+        .header p {
+            margin: 0;
+            color: #667085;
+            font-size: 16px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 14px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccd3df;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #2864dc;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 22px;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #2864dc;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #174ea6;
+        }
+
+        #loading {
+            display: none;
+            margin-top: 15px;
+            text-align: center;
+            color: #2864dc;
+            font-weight: bold;
+        }
+
+        #error {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            background: #fff0f0;
+            color: #d93025;
+            font-weight: bold;
+        }
+
+        #resultsCard {
+            display: none;
+        }
+
+        .results-title {
+            color: #174ea6;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .match {
+            position: relative;
+            background: white;
+            border: 1px solid #d8dee9;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .match.top-match {
+            border: 2px solid #2864dc;
+            box-shadow: 0 4px 15px rgba(40, 100, 220, 0.12);
+        }
+
+        .badge {
+            display: inline-block;
+            background: #f9ab00;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .match h3 {
+            margin: 5px 0 15px;
+            color: #2864dc;
+            font-size: 21px;
+        }
+
+        .info {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+
+        .skills-box {
+            margin-top: 15px;
+            padding: 14px;
+            border-radius: 8px;
+            background: #f5f7fa;
+        }
+
+        .matched {
+            color: #008a3e;
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        .missing {
+            color: #d93025;
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        .details {
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px solid #e2e6ed;
+        }
+
+        .details p {
+            margin: 7px 0;
+            font-size: 14px;
+        }
+
+        .explanation {
+            margin-top: 15px;
+            padding: 12px;
+            border-left: 4px solid #2864dc;
+            background: #f0f5ff;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .score-label {
+            margin-top: 17px;
+            margin-bottom: 7px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .progress {
+            width: 100%;
+            height: 10px;
+            background: #e1e5eb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #2864dc;
+            border-radius: 10px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: #667085;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px 10px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Find Your Best Internship</h1>
+        <p>SmartMatch AI-powered internship recommendation system</p>
+    </div>
+
+    <!-- INPUT CARD -->
+    <div class="card">
+
+        <label for="name">Name</label>
+        <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            value="Rahul"
+        >
+
+        <label for="skills">Skills</label>
+        <input
+            type="text"
+            id="skills"
+            placeholder="Example: Python, SQL, Machine Learning"
+            value="Python, SQL, Machine Learning"
+        >
+
+        <label for="location">Location</label>
+        <input
+            type="text"
+            id="location"
+            placeholder="Example: Bangalore"
+            value="Bangalore"
+        >
+
+        <label for="experience">Experience (Years)</label>
+        <input
+            type="number"
+            id="experience"
+            min="0"
+            value="2"
+        >
+
+        <label for="education">Education</label>
+        <input
+            type="text"
+            id="education"
+            placeholder="Example: B.Tech"
+            value="B.Tech"
+        >
+
+        <button onclick="findMatches()">
+            Find Matching Internships
+        </button>
+
+        <div id="loading">
+            Finding your best matches...
+        </div>
+
+        <div id="error"></div>
+
+    </div>
+
+    <!-- RESULTS -->
+    <div class="card" id="resultsCard">
+
+        <h2 class="results-title">
+            Recommended Internships
+        </h2>
+
+        <div id="results"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+async function findMatches() {
+
+    const name = document.getElementById("name").value.trim();
+    const skillsInput = document.getElementById("skills").value.trim();
+    const location = document.getElementById("location").value.trim();
+    const experience = document.getElementById("experience").value;
+    const education = document.getElementById("education").value.trim();
+
+    const loading = document.getElementById("loading");
+    const error = document.getElementById("error");
+    const resultsCard = document.getElementById("resultsCard");
+    const results = document.getElementById("results");
+
+    // Clear old messages
+    error.style.display = "none";
+    error.innerHTML = "";
+
+    results.innerHTML = "";
+
+    // Basic validation
+    if (!name || !skillsInput || !location || !experience || !education) {
+        error.innerHTML = "Please fill in all the fields.";
+        error.style.display = "block";
+        return;
+    }
+
+    loading.style.display = "block";
+    resultsCard.style.display = "none";
+
+    // Convert skills into the format expected by backend
+    const skills = skillsInput
+        .split(",")
+        .map(skill => skill.trim())
+        .filter(skill => skill.length > 0);
+
+    const requestData = {
+    name: name,
+    skills: skills.join(", "),
+    location: location,
+    experience: Number(experience),
+    education: education
+};
+    try {
+
+        const response = await fetch("http://127.0.0.1:8000/matches", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestData)
+        });
+
+        if (!response.ok) {
+
+            let message = "Server returned an error.";
+
+            try {
+                const errorData = await response.json();
+
+                if (errorData.detail) {
+                    message = errorData.detail;
+                }
+            } catch (e) {
+                // Ignore JSON parsing error
+            }
+
+            throw new Error(message);
+        }
+
+        const data = await response.json();
+
+        loading.style.display = "none";
+
+        resultsCard.style.display = "block";
+
+        displayMatches(data);
+
+    } catch (err) {
+
+        loading.style.display = "none";
+
+        error.innerHTML =
+            "Could not connect to SmartMatch API.<br>" +
+            "Make sure the backend is running on port 8000.";
+
+        error.style.display = "block";
+
+        console.error("SmartMatch error:", err);
+    }
+}
+
+
+function displayMatches(data) {
+
+    const results = document.getElementById("results");
+
+    results.innerHTML = "";
+
+    if (!data.matches || data.matches.length === 0) {
+
+        results.innerHTML = `
+            <div class="no-results">
+                No matching internships found.
+            </div>
+        `;
+
+        return;
+    }
+
+    data.matches.forEach((match, index) => {
+
+        const div = document.createElement("div");
+
+        div.className = "match";
+
+        if (index === 0) {
+            div.classList.add("top-match");
+        }
+
+        const score = Number(match.match_score || 0);
+
+        /*
+         * Backend may return matched_skills and missing_skills.
+         * If they are not available, we safely show "Not available".
+         */
+
+        let matchedSkills = match.matched_skills;
+
+        let missingSkills = match.missing_skills;
+
+        if (Array.isArray(matchedSkills)) {
+            matchedSkills = matchedSkills.join(", ");
+        }
+
+        if (Array.isArray(missingSkills)) {
+            missingSkills = missingSkills.join(", ");
+        }
+
+        if (!matchedSkills || matchedSkills.length === 0) {
+            matchedSkills = "Not available";
+        }
+
+        if (!missingSkills || missingSkills.length === 0) {
+            missingSkills = "None";
+        }
+
+        /*
+         * Required skills may be returned by the backend.
+         */
+        let requiredSkills =
+            match.required_skills ||
+            match.skills ||
+            match.opportunity_skills ||
+            "Not available";
+
+        if (Array.isArray(requiredSkills)) {
+            requiredSkills = requiredSkills.join(", ");
+        }
+
+        /*
+         * Create explanation based on available information.
+         */
+        let explanation = "";
+
+        if (score >= 80) {
+
+            explanation =
+                "Excellent match. This internship strongly aligns with the candidate's profile.";
+
+        } else if (score >= 65) {
+
+            explanation =
+                "Good match. The candidate has several relevant skills and qualifications.";
+
+        } else if (score >= 50) {
+
+            explanation =
+                "Moderate match. Some requirements match, but there are additional skills that could be developed.";
+
+        } else {
+
+            explanation =
+                "Lower match. Consider improving the missing skills before applying.";
+        }
+
+        div.innerHTML = `
+
+            ${index === 0 ? `
+                <div class="badge">
+                    🏆 TOP MATCH
+                </div>
+            ` : ""}
+
+            <h3>
+                ${escapeHTML(match.company || "Unknown Company")}
+            </h3>
+
+            <div class="info">
+                💼 <strong>Role:</strong>
+                ${escapeHTML(match.role || "Not specified")}
+            </div>
+
+            <div class="info">
+                📍 <strong>Location:</strong>
+                ${escapeHTML(match.location || "Not specified")}
+            </div>
+
+            <div class="skills-box">
+
+                <p class="matched">
+                    ✅ Matched Skills:
+                    ${escapeHTML(matchedSkills)}
+                </p>
+
+                <p class="missing">
+                    ❌ Missing Skills:
+                    ${escapeHTML(missingSkills)}
+                </p>
+
+            </div>
+
+            <div class="details">
+
+                <p>
+                    <strong>📋 Required Skills:</strong>
+                    ${escapeHTML(requiredSkills)}
+                </p>
+
+                ${
+                    match.min_experience !== undefined
+                    ? `
+                    <p>
+                        <strong>⏱ Minimum Experience:</strong>
+                        ${escapeHTML(String(match.min_experience))} years
+                    </p>
+                    `
+                    : ""
+                }
+
+                ${
+                    match.education
+                    ? `
+                    <p>
+                        <strong>🎓 Education:</strong>
+                        ${escapeHTML(match.education)}
+                    </p>
+                    `
+                    : ""
+                }
+
+            </div>
+
+            <div class="explanation">
+
+                💡 <strong>Why this match?</strong><br>
+
+                ${explanation}
+
+            </div>
+
+            <div class="score-label">
+                Match Score: ${score}%
+            </div>
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar"
+                    style="width: ${Math.min(score, 100)}%;"
+                ></div>
+
+            </div>
+        `;
+
+        results.appendChild(div);
+    });
+}
+
+
+/*
+ * Prevent HTML from being inserted directly into the page.
+ */
+function escapeHTML(value) {
+
+    const div = document.createElement("div");
+
+    div.textContent = value;
+
+    return div.innerHTML;
+}
+
+</script>
+
+</body>
+</html>

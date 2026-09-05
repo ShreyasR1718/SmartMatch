@@ -1,0 +1,31 @@
+id,company,role,skills,location,min_experience,education
+1,CloudWorks,Cloud Engineering Intern,AWS;PostgreSQL;Pandas;Java,Pune,1,M.Tech
+2,AI Labs,Full Stack Developer Intern,AWS;TensorFlow;Machine Learning;Node.js;React,Mumbai,0,B.Tech
+3,WebWorks,AI Engineering Intern,React;CSS;Power BI;MongoDB;HTML,Bangalore,1,B.E
+4,ByteLabs,Full Stack Developer Intern,Python;Java;PostgreSQL,Pune,2,MCA
+5,WebWorks,Frontend Developer Intern,CSS;Data Analysis;PostgreSQL,Hyderabad,2,B.Tech
+6,WebWorks,Data Analyst Intern,JavaScript;Docker;Machine Learning;Node.js;Power BI,Kochi,1,BCA
+7,AI Labs,Python Developer Intern,Python;Pandas;HTML,Bangalore,1,M.Tech
+8,DataSphere,Python Developer Intern,Java;PostgreSQL;HTML;Node.js,Kochi,2,BCA
+9,CloudWorks,Python Developer Intern,Power BI;JavaScript;AWS;HTML;PostgreSQL,Kochi,1,M.Tech
+10,CodeCraft,Cloud Engineering Intern,CSS;HTML;TensorFlow;Power BI,Chennai,0,B.Tech
+11,ByteLabs,Cloud Engineering Intern,Pandas;PostgreSQL;Machine Learning;Power BI;CSS,Mumbai,2,BCA
+12,CloudWorks,Full Stack Developer Intern,CSS;SQL;Python;AWS,Hyderabad,0,B.E
+13,NextGen Systems,Software Engineering Intern,Machine Learning;AWS;JavaScript;Docker;Node.js,Pune,0,B.Tech
+14,ByteLabs,Web Development Intern,Java;Power BI;Pandas;HTML,Delhi,1,B.E
+15,ByteLabs,Machine Learning Intern,Git;PostgreSQL;Machine Learning;AWS;HTML;SQL,Kochi,2,MCA
+16,CodeCraft,Data Analyst Intern,Node.js;Java;JavaScript;HTML,Kochi,1,M.Tech
+17,NextGen Systems,Backend Developer Intern,PostgreSQL;Node.js;CSS;Data Analysis,Bangalore,2,M.Tech
+18,NextGen Systems,Frontend Developer Intern,Java;Git;PostgreSQL;Docker,Delhi,2,BCA
+19,ByteLabs,Web Development Intern,React;AWS;SQL;Pandas,Delhi,1,M.Tech
+20,InnoTech,Software Engineering Intern,HTML;SQL;MongoDB;TensorFlow,Bangalore,2,B.E
+21,ByteLabs,Backend Developer Intern,Data Analysis;Power BI;Node.js;React;Docker,Chennai,1,B.E
+22,TechNova,Machine Learning Intern,Java;Python;PostgreSQL;Pandas;MongoDB;CSS,Bangalore,0,M.Tech
+23,NextGen Systems,Cloud Engineering Intern,SQL;Java;Docker,Pune,0,B.Tech
+24,DevCore,Web Development Intern,AWS;JavaScript;Java,Kochi,0,M.Tech
+25,InnoTech,Data Analyst Intern,Java;PostgreSQL;JavaScript;HTML;AWS;CSS,Mumbai,2,M.Tech
+26,TechNova,Cloud Engineering Intern,Data Analysis;Machine Learning;PostgreSQL;Docker,Chennai,1,B.E
+27,NextGen Systems,Python Developer Intern,Machine Learning;SQL;HTML;Power BI,Mumbai,1,B.Tech
+28,WebWorks,Machine Learning Intern,React;CSS;Power BI;Machine Learning;Pandas,Kochi,2,MCA
+29,DataSphere,Full Stack Developer Intern,PostgreSQL;JavaScript;HTML,Kochi,1,B.E
+30,DevCore,Cloud Engineering Intern,HTML;Node.js;Machine Learning;Git;PostgreSQL,Bangalore,1,BCA

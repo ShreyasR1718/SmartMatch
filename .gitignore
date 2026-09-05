@@ -1,0 +1,27 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+**/.venv/
+**/venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Local environment/config
+.env
+.env.*
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+
+# Accidental duplicate/local copies
+ml-engine copy/
